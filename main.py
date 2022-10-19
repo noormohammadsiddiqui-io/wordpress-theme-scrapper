@@ -1,8 +1,12 @@
 from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
 from time import sleep
 
-# driver = webdriver.Chrome(executable_path="./chromedriver")
-driver = webdriver.Chrome()
+options = Options()
+options.headless = True
+options.add_argument("--window-size=1920,1200")
+
+driver = webdriver.Chrome(options=options, executable_path='./chromedriver')
 file = open('url_list.txt', 'r')
 
 for line in file:
